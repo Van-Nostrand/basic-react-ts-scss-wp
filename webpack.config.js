@@ -1,26 +1,28 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const isProd = process.env.NODE_ENV === "production";
+'use-strict'
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const isProd = process.env.NODE_ENV === 'production'
 
 const config = {
-  mode: isProd ? "production" : "development",
+  mode: isProd ? 'production' : 'development',
   entry: {
-    index: "./src/index.tsx"
+    index: './src/index.tsx',
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".sass"]
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss', '.sass'],
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: "babel-loader",
-        exclude: /node_modules/
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -28,42 +30,40 @@ const config = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          "css-loader"
-        ]
+          'css-loader',
+        ],
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
-          "style-loader",
-          "css-loader",
+          'style-loader',
+          'css-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
-              implementation: require("sass")
-            }
-          }
-        ]
-      }
-    ]
+              implementation: require('sass'),
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      filename: "index.html",
-      inject: "body"
-    })
-  ]
+      template: './public/index.html',
+      filename: 'index.html',
+      inject: 'body',
+    }),
+  ],
 }
 
-if(!isProd){
+if (!isProd) {
   config.devServer = {
     port: 8080,
     open: true,
     hot: true,
-    compress: true,
-    stats: "errors-only",
-    overlay: true,
+    compress: true
   }
 }
 
-module.exports = config;
+module.exports = config

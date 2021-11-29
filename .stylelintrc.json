@@ -1,0 +1,16 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "at-rule-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "scss/double-slash-comment-empty-line-before": null,
+    "indentation": [
+      2,
+      {
+        "except": ["value"],
+        "disableFix": true
+      }
+    ],
+    "string-quotes": null
+  }
+}
