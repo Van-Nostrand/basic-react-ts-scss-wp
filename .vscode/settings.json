@@ -3,5 +3,17 @@
   "[scss]": {
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
-  "files.eol": "\n"
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "files.eol": "\n",
+  "[js]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
 }

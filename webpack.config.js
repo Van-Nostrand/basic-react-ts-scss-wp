@@ -1,11 +1,15 @@
 'use-strict'
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const StylelintPlugin = require('stylelint-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const isProd = process.env.NODE_ENV === 'production'
 
 const config = {
   mode: isProd ? 'production' : 'development',
+  context: __dirname,
   entry: {
     index: './src/index.tsx',
   },
@@ -21,8 +25,11 @@ const config = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true
+        }
       },
       {
         test: /\.css$/,
@@ -54,6 +61,14 @@ const config = {
       filename: 'index.html',
       inject: 'body',
     }),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: './src/**/*.{ts,tsx,js,jsx}'
+      }
+    }),
+    new StylelintPlugin({
+      context: './src/scss/'
+    })
   ],
 }
 

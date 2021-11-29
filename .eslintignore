@@ -1,4 +1,4 @@
-public/**
-dist/**
-node_modules/**
-src/assets/**
+public
+dist
+node_modules
+src/assets/**/*

@@ -8,9 +8,10 @@ module.exports = {
   },
   'extends': [
     'eslint:recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended'
   ],
-  // parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
   'parserOptions': {
     'sourceType': 'module',
     'ecmaFeatures': {
@@ -19,7 +20,9 @@ module.exports = {
     'ecmaVersion': 13
   },
   'plugins': [
-    'react'
+    'react',
+    'react-hooks',
+    '@typescript-eslint'
   ],
   'rules': {
     'indent': [
@@ -80,6 +83,13 @@ module.exports = {
         'ignoreReadBeforeAssign': false
       }
     ],
-    // 'react/prop-types': 0
+    'react/prop-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off'
+  },
+  'settings': {
+    'react': {
+      'pragma': 'React',
+      'version': 'detect'
+    }
   }
 }
