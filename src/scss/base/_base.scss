@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.app-div {
+  // border: 10px solid black;
+  height: 100%;
+}

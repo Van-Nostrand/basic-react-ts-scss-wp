@@ -11,6 +11,7 @@
         "disableFix": true
       }
     ],
-    "string-quotes": null
+    "string-quotes": null,
+    "color-hex-length": null
   }
 }

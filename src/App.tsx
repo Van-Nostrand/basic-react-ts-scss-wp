@@ -4,6 +4,8 @@ import React, {
   useState
 } from 'react'
 
+import Navbar from '@/components/Navbar'
+
 // interface Props {}
 
 // const App: React.FC<Props> = ({}) => {
@@ -22,7 +24,8 @@ const App: React.FC = () => {
 
 
   return (
-    <div>
+    <div className="app-div">
+      <Navbar />
       <form onSubmit={handleSubmit}>
         <input
           type="text"

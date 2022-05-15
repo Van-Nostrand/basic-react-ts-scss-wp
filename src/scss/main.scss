@@ -1,13 +1,1 @@
-div {
-  a {
-    background-color: purple;
-  }
-
-  input {
-    font-size: 20px;
-  }
-}
-
-button {
-  font-size: 30px;
-}
+@use './base/base';

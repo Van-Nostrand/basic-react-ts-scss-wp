@@ -18,6 +18,9 @@ const config = {
     filename: 'bundle.js',
   },
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/')
+    },
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss', '.sass'],
   },
   devtool: 'inline-source-map',
