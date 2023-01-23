@@ -1,45 +1,29 @@
-import React, {
-  ChangeEvent,
-  FormEvent,
-  useState
-} from 'react'
+import React from 'react'
+import Welcome from './Welcome'
+import withUser from './withUser'
+import withLoader from './withLoader'
 
-import Navbar from '@/components/Navbar'
+import './App.css'
 
-// interface Props {}
-
-// const App: React.FC<Props> = ({}) => {
-const App: React.FC = () => {
-
-  const [ name, setName ] = useState<string>('')
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log(name)
+export default class App extends React.Component {
+  state = {
+    loaded: false
   }
 
-  const onNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value)
+  componentDidMount () {
+    setTimeout(() => {
+      this.setState({ loaded: true })
+    }, 2000)
   }
 
-
-  return (
-    <div className="app-div">
-      <Navbar />
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="textinput"
-          placeholder="type here"
-          value={name}
-          onChange={onNameChange}
-        />
-        <button>submit</button>
-      </form>
-
-      <a href="#">A random anchor tag</a>
-    </div>
-  )
+  render () {
+    const WrappedWelcome = withLoader(withUser(Welcome))
+    return (
+      <div className="text-center">
+        <h2>develop react stuff</h2>
+        <h2>with new hoc patterns</h2>
+        <WrappedWelcome user="mike" isLoaded={this.state.loaded} />
+      </div>
+    )
+  }
 }
-
-export default App

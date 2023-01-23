@@ -71,7 +71,8 @@ const config = {
     }),
     new StylelintPlugin({
       context: './src/scss/'
-    })
+    }),
+    new MiniCssExtractPlugin()
   ],
 }
 

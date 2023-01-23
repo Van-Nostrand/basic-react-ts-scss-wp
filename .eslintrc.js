@@ -83,6 +83,7 @@ module.exports = {
         'ignoreReadBeforeAssign': false
       }
     ],
+    'react/display-name': 'off',
     'react/prop-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off'
   },
