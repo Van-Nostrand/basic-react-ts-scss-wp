@@ -64,11 +64,7 @@ const config = {
       filename: 'index.html',
       inject: 'body',
     }),
-    new ForkTsCheckerWebpackPlugin({
-      eslint: {
-        files: './src/**/*.{ts,tsx,js,jsx}'
-      }
-    }),
+    new ForkTsCheckerWebpackPlugin(),
     new StylelintPlugin({
       context: './src/scss/'
     })
