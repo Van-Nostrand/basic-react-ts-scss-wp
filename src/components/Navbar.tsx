@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '@/scss/components/_navbar.scss'
 
 export default function Navbar () {
 
-  const [ navIsOpen, setNavIsOpen ] = React.useState(false)
+  const [ navIsOpen, setNavIsOpen ] = useState(false)
 
   const navDrawerClass = [
     'nav__drawer',

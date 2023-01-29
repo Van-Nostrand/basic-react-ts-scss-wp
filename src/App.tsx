@@ -1,17 +1,16 @@
 import React, {
   ChangeEvent,
   FormEvent,
-  useState
+  useState,
+  forwardRef,
+  ReactNode
 } from 'react'
-
 import Navbar from '@/components/Navbar'
+import usePreviousProps from '@/hooks/usePreviousProps'
+// import logProps from '@/components/LogProps'
+export default function App () {
 
-// interface Props {}
-
-// const App: React.FC<Props> = ({}) => {
-const App: React.FC = () => {
-
-  const [ name, setName ] = useState<string>('')
+  const [name, setName] = useState<string>('')
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -22,10 +21,33 @@ const App: React.FC = () => {
     setName(e.target.value)
   }
 
+  interface Props {
+    children?: ReactNode
+    type: 'submit' | 'button'
+  }
+
+  type Ref = HTMLButtonElement
+
+  const Button = forwardRef<Ref, Props>((props, ref) => (
+    <button ref={ref} className="special-button" type={props.type}>
+      { props.children }
+    </button>
+  ))
+
+  // const PropLogger = (props: any) => (
+  //   <div className="prop-logger">
+  //     <h2>prop logger</h2>
+  //     <div>{props.count}</div>
+  //   </div>
+  // )
 
   return (
     <div className="app-div">
       <Navbar />
+      <Button type="button">
+        A BUTTON
+      </Button>
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -41,5 +63,3 @@ const App: React.FC = () => {
     </div>
   )
 }
-
-export default App
