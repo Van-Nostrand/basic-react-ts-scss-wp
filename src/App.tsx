@@ -1,10 +1,12 @@
 import React, {
   ChangeEvent,
   FormEvent,
-  useState
+  useState,
+  useEffect
 } from 'react'
 
 import Navbar from '@/components/Navbar'
+import Card from '@/components/Card'
 
 // interface Props {}
 
@@ -22,6 +24,10 @@ const App: React.FC = () => {
     setName(e.target.value)
   }
 
+  useEffect(() => {
+    console.log('App.tsx just updated')
+  })
+
 
   return (
     <div className="app-div">
@@ -38,6 +44,7 @@ const App: React.FC = () => {
       </form>
 
       <a href="#">A random anchor tag</a>
+      <Card />
     </div>
   )
 }

@@ -1,3 +1,5 @@
+@use '@/scss/abstracts/vars';
+
 *,
 *::after,
 *::before {
@@ -24,4 +26,5 @@ body {
 .app-div {
   // border: 10px solid black;
   height: 100%;
+  padding-top: vars.$nav-height;
 }

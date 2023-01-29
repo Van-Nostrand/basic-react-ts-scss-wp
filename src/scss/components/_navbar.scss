@@ -1,12 +1,12 @@
-.nav {
-  $nav-height: 5.6rem;
+@use '@/scss/abstracts/vars';
 
+.nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   max-width: 100%;
-  height: $nav-height;
+  height: vars.$nav-height;
   box-sizing: border-box;
 
   &__inner {
@@ -34,7 +34,7 @@
   &__drawer {
     position: absolute;
     right: 0;
-    top: $nav-height;
+    top: vars.$nav-height;
     width: 20rem;
     height: 15rem;
     background-color: #8888ff;

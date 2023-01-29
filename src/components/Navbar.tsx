@@ -1,24 +1,29 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
+import { Context } from '@/context'
 import '@/scss/components/_navbar.scss'
 
 export default function Navbar () {
-
-  const [ navIsOpen, setNavIsOpen ] = React.useState(false)
+  const context = useContext(Context)
 
   const navDrawerClass = [
     'nav__drawer',
-    navIsOpen ? 'nav__drawer--open' : ''
+    context.state.openNav ? 'nav__drawer--open' : ''
   ].join(' ')
+
+  useEffect(() => {
+    console.log('Navbar just updated')
+  })
 
   return (
     <nav className="nav">
       <div className="nav__inner">
-
-        <div className="nav__logo">logo</div>
+        <div className="nav__logo">
+          logo
+        </div>
 
         <button
           className="nav__hamburger"
-          onClick={() => setNavIsOpen(!navIsOpen)}
+          onClick={() => context.setNav(!context.state.openNav)}
         >
           BURGER
         </button>
