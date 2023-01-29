@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const StylelintPlugin = require('stylelint-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const isProd = process.env.NODE_ENV === 'production'
@@ -64,17 +63,14 @@ const config = {
       filename: 'index.html',
       inject: 'body',
     }),
-    new ForkTsCheckerWebpackPlugin(),
-    new StylelintPlugin({
-      context: './src/scss/'
-    })
+    new ForkTsCheckerWebpackPlugin()
   ],
 }
 
 if (!isProd) {
   config.devServer = {
     port: 8080,
-    open: true,
+    open: false,
     hot: true,
     compress: true
   }

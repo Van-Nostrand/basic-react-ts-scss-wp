@@ -1,11 +1,4 @@
 {
-  "stylelint.enable": true,
-  "[scss]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
-  },
   "files.eol": "\n",
   "[js]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
