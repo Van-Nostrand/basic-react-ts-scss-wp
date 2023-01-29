@@ -4,13 +4,9 @@ import React, {
   useState,
   useEffect
 } from 'react'
-
 import Navbar from '@/components/Navbar'
 import Card from '@/components/Card'
 
-// interface Props {}
-
-// const App: React.FC<Props> = ({}) => {
 const App: React.FC = () => {
 
   const [ name, setName ] = useState<string>('')

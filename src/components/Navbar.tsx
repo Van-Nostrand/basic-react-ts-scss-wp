@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-// import { NavContext } from '@/context/nav'
-import { setOpen } from '@/store/navSlice'
+import { useDispatch } from 'react-redux'
+import { useShallowEqualSelector } from '@/hooks/useShallowEqualSelector'
+
+import { setOpen, setShowMore } from '@/store/navSlice'
+import NavDrawer from './NavDrawer'
 import '@/scss/components/_navbar.scss'
 import { IRootStore } from '@/types'
 
 export default function Navbar () {
-  const open = useSelector((state: IRootStore) => state.nav.open)
+  const { open, showMore } = useShallowEqualSelector((state: IRootStore) => ({
+    open: state.nav.open,
+    showMore: state.nav.showMore
+  }))
   const dispatch = useDispatch()
-  // const context = useContext(NavContext)
 
   const navDrawerClass = [
     'nav__drawer',
@@ -35,7 +39,8 @@ export default function Navbar () {
 
       </div>
       <div className={navDrawerClass}>
-        nav drawer
+        <button onClick={() => dispatch(setShowMore(!showMore))}>show more?</button>
+        <NavDrawer />
       </div>
     </nav>
   )

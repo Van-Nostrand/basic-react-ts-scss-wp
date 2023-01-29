@@ -4,5 +4,6 @@ export interface IRootStore {
   }
   nav: {
     open: boolean
+    showMore: boolean
   }
 }

@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react'
-// import { Context } from '@/context/main'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useShallowEqualSelector } from '@/hooks/useShallowEqualSelector'
+
 import { increment } from '@/store/counterSlice'
 import { IRootStore } from '@/types'
 
 export default function Card () {
-  const count = useSelector((state: IRootStore) => state.counter.value)
+  const { count, open } = useShallowEqualSelector((state: IRootStore) => ({
+    count: state.counter.value,
+    open: state.nav.open
+  }))
   const dispatch = useDispatch()
-  // const context = useContext(Context)
 
   useEffect(() => {
     console.log('CARD just updated')
@@ -22,6 +25,7 @@ export default function Card () {
       <span>I AM A CARD</span>
       <button onClick={() => dispatch(increment())}>Click me</button>
       <div> the count is { count }</div>
+      <div> nav is open? { open }</div>
     </div>
   )
 }
