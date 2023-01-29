@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from 'react'
-import { Context } from '@/context'
+import { NavContext } from '@/context/nav'
 import '@/scss/components/_navbar.scss'
 
 export default function Navbar () {
-  const context = useContext(Context)
+  const context = useContext(NavContext)
 
   const navDrawerClass = [
     'nav__drawer',

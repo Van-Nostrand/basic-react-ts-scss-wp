@@ -1,11 +1,11 @@
-import { IContext } from './initialState'
+import { INavContext } from './initialState'
 
 interface IAction {
   payload?: any
   type: string
 }
 
-export default function reducer (state: IContext, action: IAction) {
+export default function reducer (state: INavContext, action: IAction) {
   switch (action.type) {
     case 'open-nav':
       return {
