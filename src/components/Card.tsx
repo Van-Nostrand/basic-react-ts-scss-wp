@@ -1,8 +1,13 @@
-import React, { useEffect, useContext } from 'react'
-import { Context } from '@/context/main'
+import React, { useEffect } from 'react'
+// import { Context } from '@/context/main'
+import { useSelector, useDispatch } from 'react-redux'
+import { increment } from '@/store/counterSlice'
+import { IRootStore } from '@/types'
 
 export default function Card () {
-  const context = useContext(Context)
+  const count = useSelector((state: IRootStore) => state.counter.value)
+  const dispatch = useDispatch()
+  // const context = useContext(Context)
 
   useEffect(() => {
     console.log('CARD just updated')
@@ -15,8 +20,8 @@ export default function Card () {
       fontSize: '28px'
     }}>
       <span>I AM A CARD</span>
-      <button onClick={context.increaseCount}>Click me</button>
-      <div> the count is { context.state.counter }</div>
+      <button onClick={() => dispatch(increment())}>Click me</button>
+      <div> the count is { count }</div>
     </div>
   )
 }

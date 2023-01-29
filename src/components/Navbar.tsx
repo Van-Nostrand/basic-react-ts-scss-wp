@@ -1,13 +1,18 @@
-import React, { useEffect, useContext } from 'react'
-import { NavContext } from '@/context/nav'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+// import { NavContext } from '@/context/nav'
+import { setOpen } from '@/store/navSlice'
 import '@/scss/components/_navbar.scss'
+import { IRootStore } from '@/types'
 
 export default function Navbar () {
-  const context = useContext(NavContext)
+  const open = useSelector((state: IRootStore) => state.nav.open)
+  const dispatch = useDispatch()
+  // const context = useContext(NavContext)
 
   const navDrawerClass = [
     'nav__drawer',
-    context.state.openNav ? 'nav__drawer--open' : ''
+    open ? 'nav__drawer--open' : ''
   ].join(' ')
 
   useEffect(() => {
@@ -23,7 +28,7 @@ export default function Navbar () {
 
         <button
           className="nav__hamburger"
-          onClick={() => context.setNav(!context.state.openNav)}
+          onClick={() => dispatch(setOpen(!open))}
         >
           BURGER
         </button>

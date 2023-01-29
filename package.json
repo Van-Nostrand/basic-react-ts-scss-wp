@@ -20,6 +20,7 @@
     "@types/lodash": "^4.14.182",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
+    "@types/react-redux": "^7.1.25",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
     "babel-loader": "^8.2.5",
@@ -44,7 +45,9 @@
     "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-redux": "^8.0.5"
   }
 }
