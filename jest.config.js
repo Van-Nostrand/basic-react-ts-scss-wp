@@ -2,8 +2,9 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
+  verbose: true,
   transform: {
-    '^.+\\.jsx?$': 'babel-jest', // Adding this line solved the issue
+    '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.tsx?$': 'ts-jest'
   }
 }

@@ -46,13 +46,9 @@ module.exports = {
       'error',
       'never'
     ],
-    // no curly braces for 1 liners
     'curly': 0,
-    // prevent debugger during production
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    // async await
     'generator-star-spacing': 0,
-    // 'space-after-keywords': 1,
     'comma-spacing': [
       'error',
       {
@@ -86,7 +82,9 @@ module.exports = {
       }
     ],
     'react/prop-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off'
+    'react/display-name': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 'off'
   },
   'settings': {
     'react': {

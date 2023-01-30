@@ -1,17 +1,9 @@
-import React, {
-  ChangeEvent,
-  FormEvent,
-  useState
-} from 'react'
-
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import Navbar from '@/components/Navbar'
 
-// interface Props {}
+export default function App () {
 
-// const App: React.FC<Props> = ({}) => {
-const App: React.FC = () => {
-
-  const [ name, setName ] = useState<string>('')
+  const [name, setName] = useState<string>('')
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -21,7 +13,6 @@ const App: React.FC = () => {
   const onNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
   }
-
 
   return (
     <div className="app-div">
@@ -42,4 +33,3 @@ const App: React.FC = () => {
   )
 }
 
-export default App

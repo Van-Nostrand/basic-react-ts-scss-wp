@@ -11,23 +11,4 @@
     "@babel/preset-react",
     "@babel/preset-typescript"
   ]
-  // "plugins": [
-  //   "@babel/plugin-syntax-dynamic-import",
-  //   [
-  //     "module-resolver",
-  //     {
-  //       "root": "./src",
-  //       "extensions": [
-  //         ".js",
-  //         ".jsx",
-  //         ".css",
-  //         ".json",
-  //         ".svg"
-  //       ],
-  //       "alias": {
-  //         "@": "./src"
-  //       }
-  //     }
-  //   ]
-  // ]
 }
